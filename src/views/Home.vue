@@ -1,5 +1,14 @@
 <template>
   <div class="home">
-    <h1>Home Page</h1>
+    <Jumbotron />>
   </div>
 </template>
+<script>
+import Jumbotron from "../components/Jumbotron.vue"
+export default {
+  name: "App",
+  components: {
+    Jumbotron
+  }
+};
+</script>
