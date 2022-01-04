@@ -2,5 +2,7 @@
   "home": "Home",
   "about": "About",
   "search": "Search",
-  "search_desc": "Movie or Series"
+  "search_desc": "Movie or Series",
+  "jumboton_title": "Explore Now",
+  "jumboton_desc": "Millions of movies, series and people to discover."
 }
