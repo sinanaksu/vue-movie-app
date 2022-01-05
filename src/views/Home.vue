@@ -1,6 +1,6 @@
 <template>
   <div class="home">
-    <Jumbotron />>
+    <Jumbotron />
   </div>
 </template>
 <script>
