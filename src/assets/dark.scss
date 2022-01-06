@@ -115,5 +115,43 @@
       -webkit-font-smoothing: antialiased;
       -moz-osx-font-smoothing: grayscale;
     }
+    h3 {
+      color: #ffffff;
+    }
+    .detail-section {
+      position: relative;
+      background-color: transparent !important;
+      overflow: hidden;
+      padding: 3em 0px 3em 0px !important;
+      color: #ffffff;
+      margin-right: 0 !important;
+      margin-left: 0 !important;
+    }
+    .detail-section .backimg {
+      position: absolute;
+      left: 0;
+      top: 0;
+      padding: 0 !important;
+      margin: 0 !important;
+      background-size: cover;
+      opacity: 0.1;
+      z-index: -1;
+    }
+    .rounded-15 {
+      border-radius: 15px !important;
+    }
+    .page {
+      color: #ffffff !important;
+    }
+
+    .footer {
+      background-color: #1f2c38;
+      color: #ffffff;
+      box-shadow: 0 0 10px #44627e;
+      width: 100%;
+      margin-top: 80px;
+      padding: 5px 10px;
+      min-height: 80px;
+    }
   }
 }
