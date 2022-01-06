@@ -2,17 +2,17 @@
   <div class="row ps-1 pe-1">
     <VueSlickCarousel v-bind="settings">
       <div class="col" v-for="(item, index) of items" :key="index">
-        <router-link :to="getSeoURL(item.name, item.id)">
+        <router-link :to="getSeoURL((item.name ? item.name : item.original_title), item.id)">
           <div class="card shadow-sm m-2 border-0">
             <img :src="imgFullURL(item.poster_path)" class="rounded-3" />
             <span class="card-vote"> {{ item.vote_average }}</span>
             <div class="card-body pt-4 ps-2 pe-2 pb-1">
               <p class="card-text fw-bold text-truncate pb-0 mb-1">
-                {{ item.name }}
+                {{ item.name ? item.name : item.original_title }}
               </p>
               <div class="d-flex justify-content-between align-items-center">
                 <small class="text-muted">{{
-                  dateConvert(item.first_air_date)
+                  dateConvert(item.first_air_date ? item.first_air_date : item.release_date)
                 }}</small>
               </div>
             </div>
