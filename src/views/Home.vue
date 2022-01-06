@@ -3,10 +3,10 @@
     <Jumbotron />
     <div class="container  mb-4">
       <h3 class="border-0 p-2 ps-3 pt-2">
-        <span>{{ $t("top-tv") }}</span>
+        <span>{{ $t("new-movie") }}</span>
       </h3>
-      <div v-if="topTV.length">
-        <ItemList :items="topTV" />
+      <div v-if="newMovie.length">
+        <ItemList :items="newMovie" />
       </div>
       <div v-else class="d-flex justify-content-center">
         <div class="spinner-grow text-primary" role="status">
@@ -35,6 +35,7 @@
 import Jumbotron from "../components/Jumbotron.vue";
 import ItemList from "../components/ItemList.vue";
 import { trending } from "../services/trending";
+import { upcoming } from "../services/upcoming";
 export default {
   name: "App",
   components: {
@@ -43,14 +44,14 @@ export default {
   },
   data() {
     return {
-      topTV: {},
+      newMovie: {},
       topMovie: {},
     };
   },
   methods: {
     trendLoad() {
-      trending("tv", this.$i18n.locale).then((res) => {
-        this.topTV = res.data.results;
+      upcoming("", this.$i18n.locale).then((res) => {
+        this.newMovie = res.data.results;
       });
       trending("movie", this.$i18n.locale).then((res) => {
         this.topMovie = res.data.results;
@@ -58,13 +59,13 @@ export default {
     },
   },
   mounted() {
-    this.topTV = {};
+    this.newMovie = {};
     this.topMovie = {};
     this.trendLoad();
   },
   watch: {
     "$i18n.locale": function () {
-      this.topTV = {};
+      this.newMovie = {};
       this.topMovie = {};
       this.trendLoad();
     },
