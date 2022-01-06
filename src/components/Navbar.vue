@@ -13,7 +13,7 @@
     <nav class="navbar navbar-expand-lg bg-nav navbar-light shadow mb-3">
       <div class="container">
         <router-link class="navbar-brand" to="/">
-          <img src="../assets/logo.svg" width="100" />
+          <img :src="useLogo" width="150" />
         </router-link>
         <button
           class="navbar-toggler"
@@ -61,11 +61,27 @@
 <script>
 import ThemeSwitch from "./ThemeSwitch.vue"
 import LocaleSwitch from "./LocaleSwitch.vue"
+import LogoWhite from "../assets/logo-white.svg";
+import LogoBlack from "../assets/logo.svg";
+import { mapState } from 'vuex';
 export default {
   name: "Navbar",
+  data() {
+    return {
+      useLogo: LogoBlack
+    }
+  },
+  computed: {
+		...mapState(['darkmode']),
+	},
   components: {
     ThemeSwitch,
     LocaleSwitch
+  },
+  watch: {
+    darkmode: function () {
+      if(this.darkmode) { this.useLogo = LogoWhite; } else { this.useLogo = LogoBlack; }
+    },
   }
 };
 </script>
