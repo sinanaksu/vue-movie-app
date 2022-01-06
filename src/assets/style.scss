@@ -7,7 +7,7 @@
   top: 0;
   position: fixed;
   overflow-y: scroll;
-  min-width: 100vh;
+  min-height: 100vh;
 }
 .bg-nav {
   background: #f1f8fe;
@@ -131,4 +131,7 @@ a {
   margin-top: 80px;
   padding: 5px 10px;
   min-height: 80px;
+}
+.slick-dots {
+  position: static !important
 }
