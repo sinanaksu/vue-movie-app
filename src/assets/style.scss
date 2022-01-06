@@ -1,13 +1,71 @@
+#app {
+  font-family: "Rubik", sans-serif !important;
+  background-color: #eceefa;
+  height: 100%;
+  width: 100%;
+  left: 0;
+  top: 0;
+  position: fixed;
+  overflow-y: scroll;
+}
 .bg-nav {
-    background: #f1f8fe;
+  background: #f1f8fe;
 }
 .bg-sub-bar {
-    background: #87c7ff;
+  background: #87c7ff;
 }
 .mt-n3 {
-    margin-top: -0.75rem !important;
+  margin-top: -1.75rem !important;
+}
+.home-jb {
+  background-image: url("./jumbotron.jpg");
+  background-repeat: no-repeat;
+  background-position: center top;
+  color: #ffffff;
+  box-shadow: 0px 0px 40px #5f5f5f;
+  text-shadow: 0px 0px 10px #000000;
 }
 .flag {
-    border-radius: 10px;
-    width: 25px;
+  border-radius: 10px;
+  width: 25px;
+}
+.card {
+  background-color: transparent !important;
+  border: 0 !important;
+  box-shadow: none !important;
+  border-radius: 15px !important;
+}
+.card-vote {
+  background-color: yellow;
+  box-shadow: 1px 1px 10px #000000;
+  font-weight: 800;
+  font-size: 14px;
+  width: 30px;
+  height: 30px;
+  line-height: 30px;
+  text-align: center;
+  border-radius: 30px;
+  margin-top: -45px;
+  margin-left: 10px;
+  color: #000000;
+}
+
+.card img {
+  box-shadow: 0px 0px 1px #686868;
+  border-radius: 15px !important;
+}
+
+.card:hover img {
+  box-shadow: 0 0 8px #000000 !important;
+}
+.slick-prev:before,
+.slick-next:before {
+  font-family: "slick" !important;
+  font-size: 20px !important;
+  opacity: 1 !important;
+  color: rgb(0, 0, 0) !important;
+}
+
+a {
+  text-decoration: none;
 }

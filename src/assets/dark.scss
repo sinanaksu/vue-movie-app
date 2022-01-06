@@ -1,3 +1,119 @@
-.dark {
+:root {
+  @import "../../node_modules/bootstrap/scss/functions";
+  @import "../../node_modules/bootstrap/scss/variables";
+  @import "../../node_modules/bootstrap/scss/mixins";
+
+  .dark {
+    background-image: none !important;
+    background-color: rgb(0, 0, 0) !important;
+    $card-bg: rgb(167, 167, 167);
+    $enable-gradients: true;
+
+    $theme-colors: (
+      "white": $white,
+      "primary": $primary,
+      "secondary": $secondary,
+      "success": $success,
+      "danger": $danger,
+      "dark": $dark,
+      "light": #aaa,
+    );
+
+    $theme-colors-rgb: map-loop($theme-colors, to-rgb, "$value");
+
+    @each $color, $value in $theme-colors-rgb {
+      --#{$variable-prefix}#{$color}-rgb: #{$value};
+    }
+
+    $body-color: #eeeeee;
+    $body-bg: #263c5c;
+
+    --#{$variable-prefix}body-color: #{$body-color};
+    --#{$variable-prefix}body-bg: #{$body-bg};
     @import "bootstrap";
+    .form-check-input:checked {
+      background-color: #000;
+      border-color: #000;
+    }
+    .bg-nav {
+      background: #1f2c38;
+      color: #ffffff;
+    }
+    .bg-sub-bar {
+      background: #010a11;
+      color: #ffffff;
+    }
+    .navbar-light .navbar-nav .nav-link {
+      color: rgba(255, 255, 255, 0.55);
+    }
+
+    .home-jb {
+      background-image: url("./jumbotron.jpg");
+      background-repeat: no-repeat;
+      background-position: center top;
+      color: #ffffff;
+      box-shadow: 0px 0px 40px #4b0a0a;
+    }
+    .card {
+      background-color: transparent !important;
+      border: 0 !important;
+      box-shadow: none !important;
+      border-radius: 15px !important;
+      color: #ffffff;
+    }
+    .card-vote {
+      background-color: yellow;
+      box-shadow: 1px 1px 10px #000000;
+      font-weight: 800;
+      font-size: 14px;
+      width: 30px;
+      height: 30px;
+      line-height: 30px;
+      text-align: center;
+      border-radius: 30px;
+      margin-top: -45px;
+      margin-left: 10px;
+    }
+
+    .card img {
+      box-shadow: none !important;
+      border-radius: 15px !important;
+    }
+
+    .card:hover img {
+      box-shadow: 0 0 12px #a2a2a2 !important;
+    }
+
+    .slick-prev:before,
+    .slick-next:before {
+      font-family: "slick" !important;
+      font-size: 20px !important;
+      opacity: 1 !important;
+      color: rgb(255, 255, 255) !important;
+    }
+
+    a {
+      text-decoration: none;
+    }
+    ul {
+      margin-top: 0;
+      margin-bottom: 0;
+    }
+    .slick-dots li button:before {
+      font-family: "slick";
+      font-size: 6px;
+      line-height: 20px;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 20px;
+      height: 20px;
+      content: "•";
+      text-align: center;
+      opacity: 1;
+      color: white;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
   }
+}
