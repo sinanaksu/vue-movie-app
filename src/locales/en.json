@@ -7,6 +7,8 @@
   "jumboton_desc": "Millions of movies, series and people to discover.",
   "lightmode": "Light",
   "darkmode": "Dark",
-  "top-tv": "Top List TV",
-  "top-movie": "Top List Movies"
+  "new-movie": "What's New Added?",
+  "top-movie": "What's Popular?",
+  "crew": "Producer Team",
+  "cast": "Cast"
 }
