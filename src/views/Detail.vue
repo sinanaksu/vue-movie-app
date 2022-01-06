@@ -18,7 +18,7 @@
             </h2>
 
             <div class="row">
-              <div class="col-1">
+              <div class="col-sm-12 col-md-1">
             <div class="img-vote">{{ item.vote_average }}</div>
               </div>
               <div class="col" v-if="item.genres">
@@ -39,23 +39,9 @@
       <h3 class="border-0 pb-2 ps-3 pt-2 mt-4">
         <span>{{ $t("cast") }}</span>
       </h3>
-  <div class="row ps-1 pe-1 ">
-    <VueSlickCarousel v-bind="settings">
-      <div class="col" v-for="(crew, credit_id) of casts" v-bind:key="credit_id">
-          <div class="card shadow-sm m-2 border-0">
-            <img :src="imgFullURL(crew.profile_path)" class="rounded-3" />
-            <div class="card-body pt-4 ps-2 pe-2 pb-1">
-              <p class="card-text fw-bold text-truncate pb-0 mb-1">
-                {{ crew.name ? crew.name : crew.original_name }}
-              </p>
-              <div class="d-flex justify-content-between align-items-center">
-                <small class="text-muted">{{crew.character}}</small>
-              </div>
-            </div>
-          </div>
+      <div v-if="casts.length">
+        <PeopleSlider :items="casts" />
       </div>
-    </VueSlickCarousel>
-  </div>
 </div>
 
 
@@ -63,23 +49,9 @@
       <h3 class="border-0 pb-2 ps-3 pt-2 mt-4">
         <span>{{ $t("crew") }}</span>
       </h3>
-  <div class="row ps-1 pe-1 ">
-    <VueSlickCarousel v-bind="settings">
-      <div class="col" v-for="(crew, credit_id) of crews" v-bind:key="credit_id">
-          <div class="card shadow-sm m-2 border-0">
-            <img :src="imgFullURL(crew.profile_path)" class="rounded-3" />
-            <div class="card-body pt-4 ps-2 pe-2 pb-1">
-              <p class="card-text fw-bold text-truncate pb-0 mb-1">
-                {{ crew.name ? crew.name : crew.original_name }}
-              </p>
-              <div class="d-flex justify-content-between align-items-center">
-                <small class="text-muted">{{crew.job}}</small>
-              </div>
-            </div>
-          </div>
+      <div v-if="crews.length">
+        <PeopleSlider :items="crews" />
       </div>
-    </VueSlickCarousel>
-  </div>
 </div>
   </div>
 </template>
@@ -87,9 +59,7 @@
 <script>
 import { detail, credits } from "../services/detail";
 import { utils } from "../utils/";
-import VueSlickCarousel from "vue-slick-carousel";
-import "vue-slick-carousel/dist/vue-slick-carousel.css";
-import "vue-slick-carousel/dist/vue-slick-carousel-theme.css";
+import PeopleSlider from "../components/PeopleSlider.vue";
 
 export default {
   name: "Detail",
@@ -98,45 +68,11 @@ export default {
       item: {},
       crews: {},
       casts: {},
-      settings: {
-        dots: true,
-        infinite: true,
-        speed: 500,
-        slidesToShow: 7,
-        slidesToScroll: 7,
-        initialSlide: 0,
-        responsive: [
-          {
-            breakpoint: 1024,
-            settings: {
-              slidesToShow: 4,
-              slidesToScroll: 4,
-              infinite: true,
-              dots: true,
-            },
-          },
-          {
-            breakpoint: 600,
-            settings: {
-              slidesToShow: 3,
-              slidesToScroll: 3,
-              initialSlide: 0,
-            },
-          },
-          {
-            breakpoint: 480,
-            settings: {
-              slidesToShow: 2,
-              slidesToScroll: 2,
-            },
-          },
-        ],
-      },
     };
   },
   mixins: [utils],
   components: {
-    VueSlickCarousel,
+    PeopleSlider,
   },
 
   mounted() {
@@ -144,8 +80,8 @@ export default {
       this.item = res.data;
     });
     credits(this.$route.params.id, this.$i18n.locale).then((res) => {
-      this.crews = (res.data.crew).slice(0,7);
-      this.casts = (res.data.cast).slice(0,7);
+      this.crews = res.data.crew;
+      this.casts = res.data.cast;
     });
   },
   watch: {
