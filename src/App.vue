@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div v-bind:class="{ dark: this.$store.state.darkmode }">
     <Navbar />
     <router-view />
   </div>

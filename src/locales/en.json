@@ -4,5 +4,7 @@
   "search": "Search",
   "search_desc": "Movie or Series",
   "jumboton_title": "Explore Now",
-  "jumboton_desc": "Millions of movies, series and people to discover."
+  "jumboton_desc": "Millions of movies, series and people to discover.",
+  "lightmode": "Light",
+  "darkmode": "Dark"
 }

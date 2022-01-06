@@ -4,5 +4,7 @@
   "search": "Ara",
   "search_desc": "Film veya Dizi",
   "jumboton_title": "Şimdi Keşfedin",
-  "jumboton_desc": "Keşfedilecek milyonlarca film, dizi ve oyuncu var."
+  "jumboton_desc": "Keşfedilecek milyonlarca film, dizi ve oyuncu var.",
+  "lightmode": "Açık",
+  "darkmode": "Koyu"
 }

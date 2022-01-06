@@ -4,7 +4,7 @@
       <div class="container">
         <div class="row">
           <div class="col-sm-12 col-md-12 col-lg-12 text-end">
-            <span class="me-5">Dark Mod</span>
+            <ThemeSwitch class="me-5" />
             <LocaleSwitch />
           </div>
         </div>
@@ -59,10 +59,12 @@
   </div>
 </template>
 <script>
+import ThemeSwitch from "./ThemeSwitch.vue"
 import LocaleSwitch from "./LocaleSwitch.vue"
 export default {
   name: "Navbar",
   components: {
+    ThemeSwitch,
     LocaleSwitch
   }
 };
