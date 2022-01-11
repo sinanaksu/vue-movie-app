@@ -10,5 +10,6 @@
   "new-movie": "What's New Added?",
   "top-movie": "What's Popular?",
   "crew": "Producer Team",
-  "cast": "Cast"
+  "search-not-result": "We searched but couldn't find anything like this.",
+  "search-empty": "You have to type something to be able to search."
 }

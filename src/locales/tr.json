@@ -10,5 +10,8 @@
   "new-movie": "Yeni Eklenen Filmler",
   "top-movie": "Popüler Filmler",
   "crew": "Yapımcı Ekip",
-  "cast": "Oyuncu Kadrosu"
+  "cast": "Oyuncu Kadrosu",
+  "search-not-result": "Aradık ama böyle bir şey bulamadık.",
+  "search-empty": "Arama yapabilmek için bir şeyler yazmalısın."
+
 }

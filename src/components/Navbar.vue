@@ -33,10 +33,15 @@
                 class="form-control form-control-sm"
                 type="text"
                 :placeholder="$t('search_desc')"
+                v-model.trim="searchQuery"
               />
             </div>
             <div class="col-auto">
-              <button type="button" class="btn btn-primary btn-sm">
+              <button
+                type="button"
+                @click="search(searchQuery)"
+                class="btn btn-primary btn-sm"
+              >
                 {{ $t("search") }}
               </button>
             </div>
@@ -59,29 +64,45 @@
   </div>
 </template>
 <script>
-import ThemeSwitch from "./ThemeSwitch.vue"
-import LocaleSwitch from "./LocaleSwitch.vue"
+import ThemeSwitch from "./ThemeSwitch.vue";
+import LocaleSwitch from "./LocaleSwitch.vue";
 import LogoWhite from "../assets/logo-white.svg";
 import LogoBlack from "../assets/logo.svg";
-import { mapState } from 'vuex';
+import { mapState } from "vuex";
+import { utils } from "../utils/";
 export default {
   name: "Navbar",
   data() {
     return {
-      useLogo: LogoBlack
-    }
+      useLogo: LogoBlack,
+      searchQuery: "",
+    };
   },
   computed: {
-		...mapState(['darkmode']),
-	},
+    ...mapState(["darkmode"]),
+  },
+  mixins: [utils],
   components: {
     ThemeSwitch,
-    LocaleSwitch
+    LocaleSwitch,
+  },
+  methods: {
+    search(qu) {
+      if(qu != '') {
+      this.$router.push({ path: "/search/" + qu.toLowerCase().replace(" ","-")});
+      } else {
+        alert(this.$i18n.t('search-empty'));
+      }
+    },
   },
   watch: {
     darkmode: function () {
-      if(this.darkmode) { this.useLogo = LogoWhite; } else { this.useLogo = LogoBlack; }
+      if (this.darkmode) {
+        this.useLogo = LogoWhite;
+      } else {
+        this.useLogo = LogoBlack;
+      }
     },
-  }
+  },
 };
 </script>
